@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Radio Crypto</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">Secure Radio Crypto</h1>
+        <p class="text-center text-gray-600 mb-4">Учебный шифратор/дешифратор с AES-256</p>
+
+      
+        <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Режим работы:</label>
+            <select id="mode" class="w-full p-2 border rounded">
+                <option value="encrypt">Шифрование</option>
+                <option value="decrypt">Дешифрование</option>
+            </select>
+        </div>
+
+ 
+        <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Текст:</label>
+            <textarea id="inputText" class="w-full p-2 border rounded" rows="4" placeholder="Введите текст..."></textarea>
+        </div>
+
+    
+        <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Или загрузите файл:</label>
+            <input type="file" id="inputFile" accept=".txt" class="w-full p-2 border rounded">
+        </div>
+
+
+        <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Ключ (32 символа):</label>
+            <input type="text" id="key" class="w-full p-2 border rounded" placeholder="Введите ключ...">
+            <button id="generateKey" class="mt-2 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Сгенерировать ключ</button>
+        </div>
+
+    
+        <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Результат:</label>
+            <textarea id="outputText" class="w-full p-2 border rounded" rows="4" readonly></textarea>
+        </div>
+
+
+        <div class="flex justify-between mb-4">
+            <button id="execute" class="bg-green-500 text-white p-2 rounded hover:bg-green-600">Выполнить</button>
+            <button id="copyResult" class="bg-gray-500 text-white p-2 rounded hover:bg-gray-600">Скопировать</button>
+            <button id="saveResult" class="bg-gray-500 text-white p-2 rounded hover:bg-gray-600">Сохранить</button>
+            <button id="showSteps" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Показать шаги</button>
+        </div>
+
+   
+        <div id="steps" class="hidden bg-gray-50 p-4 rounded border">
+            <h2 class="text-lg font-semibold mb-2">Шаги шифрования:</h2>
+            <pre id="stepsContent" class="text-sm text-gray-700"></pre>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
